@@ -1,0 +1,56 @@
+#studied parameters and theirs definitions
+
+"QV2M": "MERRA-2 Specific Humidity at 2 Meters (g/kg)
+The ratio of the mass of water vapor to the total mass of air at 2 meters (kg water/kg total air).",
+
+"RH2M": "MERRA-2 Relative Humidity at 2 Meters (%)
+The ratio of actual partial pressure of water vapor to the partial pressure at saturation(pressure with water liquid and water vapor both exist), expressed in percent. (+ it depends on also temperature)",
+
+"ALLSKY_KT": "CERES SYN1deg All Sky Insolation Clearness Index (dimensionless)
+A fraction representing clearness of the atmosphere; the all sky insolation that is transmitted through the atmosphere to strike the surface of the earth divided by the average of top of the atmosphere total solar irradiance incident. (the ratio of the insolation transmitted on the earth to top of total icident insolation )",
+
+"CLOUD_AMT": "CERES SYN1deg Cloud Amount (%)
+The average percent of cloud amount during the temporal period.",
+
+"CLRSKY_KT": "CERES SYN1deg Clear Sky Insolation Clearness Index (dimensionless)
+A fraction representing clearness of the atmosphere; the clear sky insolation that is transmitted through the atmosphere to strike the surface of the earth divided by the average of top of the atmosphere total solar irradiance incident.",
+
+"TOA_SW_DWN": "CERES SYN1deg Top-Of-Atmosphere Shortwave Downward Irradiance (kW-hr/m^2/day)
+The total solar irradiance incident (direct plus diffuse) on a horizontal plane at the top of the atmosphere (extraterrestrial radiation)",
+
+"PRECTOTCORR": "MERRA-2 Precipitation Corrected (mm/day)
+The bias corrected average of total precipitation at the surface of the earth in water mass (includes water content in snow).",
+
+"ALLSKY_SFC_UVA": "CERES SYN1deg All Sky Surface UVA Irradiance (W/m^2)
+The ultraviolet A (UVA 315nm-400nm) irradiance under all sky conditions.",
+
+"ALLSKY_SFC_UVB": "CERES SYN1deg All Sky Surface UVB Irradiance (W/m^2)
+The ultraviolet B (UVB 280nm-315nm) irradiance under all sky conditions.",
+
+"ALLSKY_SRF_ALB": "CERES SYN1deg All Sky Surface Albedo (dimensionless)
+The all sky rate of reflectivity of the earth's surface; the ratio of the solar energy reflected by the surface of the earth compared to the total solar energy incident reaching the surface of the earth.",
+
+"PRECTOTCORR_SUM": "MERRA-2 Precipitation Corrected Sum (mm)
+The bias corrected sum of total precipitation at the surface of the earth.",
+
+"ALLSKY_SFC_SW_DNI": "CERES SYN1deg All Sky Surface Shortwave Downward Direct Normal Irradiance (kW-hr/m^2/day)
+The direct solar irradiance incident to a horizontal plane normal (perpendicular) to the direction of the sun's position under all sky conditions.",
+
+"ALLSKY_SFC_SW_DWN": "CERES SYN1deg All Sky Surface Shortwave Downward Irradiance (kW-hr/m^2/day)
+The total solar irradiance incident (direct plus diffuse) on a horizontal plane at the surface of the earth under all sky conditions. An alternative term for the total solar irradiance is the "Global Horizontal Irradiance" or GHI.",
+
+"CLRSKY_SFC_SW_DWN": "CERES SYN1deg Clear Sky Surface Shortwave Downward Irradiance (kW-hr/m^2/day)
+The total solar irradiance incident (direct plus diffuse) on a horizontal plane at the surface of the earth under clear sky conditions. An alternative term for the total solar irradiance is the "Global Horizontal Irradiance" or GH",
+
+"ALLSKY_SFC_PAR_TOT": "CERES SYN1deg All Sky Surface PAR Total (W/m^2)
+The total Photosynthetically Active Radiation (PAR) incident on a horizontal plane at the surface of the earth under all sky conditions.",
+
+"ALLSKY_SFC_SW_DIFF": "CERES SYN1deg All Sky Surface Shortwave Diffuse Irradiance (kW-hr/m^2/day)
+The diffuse (light energy scattered out of the direction of the sun) solar irradiance incident on a horizontal plane at the surface of the earth under all sky conditions.",
+
+"CLRSKY_SFC_PAR_TOT": "CERES SYN1deg Clear Sky Surface PAR Total (W/m^2)
+The total Photosynthetically Active Radiation (PAR) incident on a horizontal plane at the surface of the earth under clear sky conditions.",
+
+"ALLSKY_SFC_UV_INDEX": "CERES SYN1deg All Sky Surface UV Index (dimensionless)
+ultraviolet radiation exposure index."
+

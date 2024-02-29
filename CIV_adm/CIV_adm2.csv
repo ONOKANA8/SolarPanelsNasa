@@ -1,0 +1,51 @@
+"OBJECTID","ID_0","ISO","NAME_0","ID_1","NAME_1","ID_2","NAME_2","TYPE_2","ENGTYPE_2","NL_NAME_2","VARNAME_2"
+1,57,"CIV","Côte d'Ivoire",1,"Agnéby",1,"Adzopé","Département","Department",NA,NA
+2,57,"CIV","Côte d'Ivoire",1,"Agnéby",2,"Agboville","Département","Department",NA,NA
+3,57,"CIV","Côte d'Ivoire",2,"Bafing",3,"Touba","Département","Department",NA,NA
+4,57,"CIV","Côte d'Ivoire",3,"Bas-Sassandra",4,"San-Pédro","Département","Department",NA,NA
+5,57,"CIV","Côte d'Ivoire",3,"Bas-Sassandra",5,"Sassandra","Département","Department",NA,NA
+6,57,"CIV","Côte d'Ivoire",3,"Bas-Sassandra",6,"Soubré","Département","Department",NA,NA
+7,57,"CIV","Côte d'Ivoire",3,"Bas-Sassandra",7,"Tabou","Département","Department",NA,NA
+8,57,"CIV","Côte d'Ivoire",4,"Denguélé",8,"Odienné","Département","Department",NA,NA
+9,57,"CIV","Côte d'Ivoire",5,"Dix-Huit Montagnes",9,"Bangolo","Département","Department",NA,NA
+10,57,"CIV","Côte d'Ivoire",5,"Dix-Huit Montagnes",10,"Biankouma","Département","Department",NA,NA
+11,57,"CIV","Côte d'Ivoire",5,"Dix-Huit Montagnes",11,"Danané","Département","Department",NA,NA
+12,57,"CIV","Côte d'Ivoire",5,"Dix-Huit Montagnes",12,"Man","Département","Department",NA,NA
+13,57,"CIV","Côte d'Ivoire",6,"Fromager",13,"Gagnoa","Département","Department",NA,NA
+14,57,"CIV","Côte d'Ivoire",6,"Fromager",14,"Oumé","Département","Department",NA,NA
+15,57,"CIV","Côte d'Ivoire",7,"Haut-Sassandra",15,"Daloa","Département","Department",NA,NA
+16,57,"CIV","Côte d'Ivoire",7,"Haut-Sassandra",16,"Issia","Département","Department",NA,NA
+17,57,"CIV","Côte d'Ivoire",7,"Haut-Sassandra",17,"Vavoua","Département","Department",NA,NA
+18,57,"CIV","Côte d'Ivoire",8,"Lacs",18,"Toumodi","Département","Department",NA,NA
+19,57,"CIV","Côte d'Ivoire",8,"Lacs",19,"Yamoussoukro","Département","Department",NA,NA
+20,57,"CIV","Côte d'Ivoire",9,"Lagunes",20,"Abidjan","Département","Department",NA,NA
+21,57,"CIV","Côte d'Ivoire",9,"Lagunes",21,"Grand-Lahou","Département","Department",NA,NA
+22,57,"CIV","Côte d'Ivoire",9,"Lagunes",22,"Tiassalé","Département","Department",NA,NA
+23,57,"CIV","Côte d'Ivoire",10,"Marahoué",23,"Bouaflé","Département","Department",NA,NA
+24,57,"CIV","Côte d'Ivoire",10,"Marahoué",24,"Sinfra","Département","Department",NA,NA
+25,57,"CIV","Côte d'Ivoire",10,"Marahoué",25,"Zuénoula","Département","Department",NA,NA
+26,57,"CIV","Côte d'Ivoire",11,"Moyen-Cavally",26,"Duékoué","Département","Department",NA,NA
+27,57,"CIV","Côte d'Ivoire",11,"Moyen-Cavally",27,"Guiglo","Département","Department",NA,NA
+28,57,"CIV","Côte d'Ivoire",12,"Moyen-Comoé",28,"Abengourou","Département","Department",NA,NA
+29,57,"CIV","Côte d'Ivoire",12,"Moyen-Comoé",29,"Agnibilékrou","Département","Department",NA,"Agnibilekro"
+30,57,"CIV","Côte d'Ivoire",13,"N'zi-Comoé",30,"Bongouanou","Département","Department",NA,NA
+31,57,"CIV","Côte d'Ivoire",13,"N'zi-Comoé",31,"Daoukro","Département","Department",NA,NA
+32,57,"CIV","Côte d'Ivoire",13,"N'zi-Comoé",32,"Dimbokro","Département","Department",NA,NA
+33,57,"CIV","Côte d'Ivoire",13,"N'zi-Comoé",33,"Mbahiakro","Département","Department",NA,"M'bahiakro"
+34,57,"CIV","Côte d'Ivoire",14,"Savanes",34,"Boundiali","Département","Department",NA,NA
+35,57,"CIV","Côte d'Ivoire",14,"Savanes",35,"Ferkessédougou","Département","Department",NA,NA
+36,57,"CIV","Côte d'Ivoire",14,"Savanes",36,"Korhogo","Département","Department",NA,NA
+37,57,"CIV","Côte d'Ivoire",14,"Savanes",37,"Tengréla","Département","Department",NA,"Tingréla"
+38,57,"CIV","Côte d'Ivoire",15,"Sud-Bandama",38,"Divo","Département","Department",NA,NA
+39,57,"CIV","Côte d'Ivoire",15,"Sud-Bandama",39,"Lakota","Département","Department",NA,NA
+40,57,"CIV","Côte d'Ivoire",16,"Sud-Comoé",40,"Aboisso","Département","Department",NA,NA
+41,57,"CIV","Côte d'Ivoire",17,"Vallée du Bandama",41,"Béoumi","Département","Department",NA,NA
+42,57,"CIV","Côte d'Ivoire",17,"Vallée du Bandama",42,"Bouaké","Département","Department",NA,NA
+43,57,"CIV","Côte d'Ivoire",17,"Vallée du Bandama",43,"Dabakala","Département","Department",NA,NA
+44,57,"CIV","Côte d'Ivoire",17,"Vallée du Bandama",44,"Katiola","Département","Department",NA,NA
+45,57,"CIV","Côte d'Ivoire",17,"Vallée du Bandama",45,"Sakassou","Département","Department",NA,"Sakasso"
+46,57,"CIV","Côte d'Ivoire",18,"Worodougou",46,"Mankono","Département","Department",NA,NA
+47,57,"CIV","Côte d'Ivoire",18,"Worodougou",47,"Séguéla","Département","Department",NA,NA
+48,57,"CIV","Côte d'Ivoire",19,"Zanzan",48,"Bondoukou","Département","Department",NA,NA
+49,57,"CIV","Côte d'Ivoire",19,"Zanzan",49,"Bouna","Département","Department",NA,NA
+50,57,"CIV","Côte d'Ivoire",19,"Zanzan",50,"Tanda","Département","Department",NA,NA
