@@ -1,7 +1,7 @@
 ## **Introduction**
 It is so common to build etl script to make easy data pipeline for many goals in data science.
-IN this article, we interest in weather feature data on a website via its API. Along this article
-We explain how to built efficiently an Extract Transform Load pipeline and make yours easier with scheduling.
+In this article, we interest in weather feature data on a website via its API. Along this article
+We explain how to build efficiently an Extract, Transform, and Load pipeline and make yours easier with scheduling.
 You need to know python programmation language, basic knowlegdes could be sufficient. So obviously you have to install Python 3.6 or later.
 
 Are you ready ? Let’s get started !
@@ -314,13 +314,13 @@ Once server launched you might not use actual terminal window. You should open a
 
 Whether all is right you might see this page if you filter a specific dag:
 
-![dag](Assets/dag-2024-05-08-180848.png)
+![dag](/Assets/dag-2024-05-08-180848.png)
 
 You can see also the matching dag graph 
-![graph](Assets/graph-2024-05-08-181037.png)
+![graph](/Assets/graph-2024-05-08-181037.png)
 
-It is possible to interact with by for specially debug if your code is still not ok .
-![logs](Assets/logs-2024-05-08-181145.png)
+It is possible to interact with for specially debug if your code is still not ok .
+![logs](/Assets/logs-2024-05-08-181145.png)
 
 
 ## **Summary**
