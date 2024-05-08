@@ -2,10 +2,10 @@
 title: Welcome to my blog
 ---
 
-# Resume
+# **Resume**
 
 # **Data Scientist**
-#### Technical Skills: Python, SQL, Pyspark, Git, Docker, Power BI, AWS
+#### Technical Skills: Python, SQL, PySpark, Git, Docker, Power BI, AWS
 
 ### **Education**
 - Data Science, Level 7 certificate | CentraleSupelec at Paris (_October 2021 - August 2022_)
@@ -30,4 +30,4 @@ title: Welcome to my blog
 
 #### Extract Transform Load pipeline setting Using Airflow [Read more...](https://github.com/ONOKANA8/SolarPanelsNasa/tree/airflowetl)
 
-### [Post 1 - next](/_posts/2024-05-08-weatherdata-etl-with-airflow-and-python-scripts.md)
+### [Post 1 - next](/_posts/2024-05-08-Weather-data-ETL-using-airflow-and-python-scripts.md)
