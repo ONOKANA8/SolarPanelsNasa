@@ -7,7 +7,7 @@ You need to know python programmation language, basic knowlegdes could be suffic
 Are you ready ? Let’s get started !
 We can understand airflow etl from installation to launching in 6 steps.
 
-**Step 1 create working virtual environment**
+## **Step 1 : Create working virtual environment**
 For this kind of project, it’s strongly recommand to create a virtual development environment to isolate your differents project dependencies needed and why not allow you reproduce easily that one for later whenever you want.
 Let’s call this airflowenv, open your terminal and paste this one below :
 
@@ -17,7 +17,7 @@ python -m venv airflowenv
 
 You might see a created new folder called airflowenv
 
-**Step 2: Activate the virtual environment and Install airflow**
+## **Step 2 : Activate the virtual environment and Install airflow**
 
 Generally it is easy to install airflow on Linux.
 
@@ -33,16 +33,17 @@ source airflowenv/bin/acitvate
 pip install apache-airflow
 ```
 
-**Step 3 Create your python scripts**
-Look ! We will extract, transform and load so we must create mainly three functions.
-**extract_data** : extract data from weather API website by requesting
-**transform_data** : transformations depend on the goal you want to reach with data extracted. So here to be simply we will apply a character changing function to a string type column and eventually keep only 3 features for instance.
-**load_data** : save data to a specific folder
+
+## **Step 3 : Create your python scripts**
+Look ! We will extract, transform and load so we must create mainly three functions:
+- **extract_data** : extract data from weather API website by requesting.
+- **transform_data** : transformations depend on the goal you want to reach with data extracted. So here to be simply we will eventually keep only 3 features among all extracted for instance.
+- **load_data** : save data to a specific folder.
 
 You can write your own etl functions like this on contained in ``etl_functions.py`` module:
 
 ```
-# need for 
+# Need for defining alias pd used by some functions describing entries type allowed
 import pandas as pd
 
 # Our etl functions will operate with this three below what I call subfunctions:
@@ -185,12 +186,15 @@ def load_data(dataframe: pd.DataFrame):
     dataframe.to_csv(filename, index=False)
 
 ```
+
 Note : It might appear pyarrow librairy needed, if so install pyarrow. This error often appears when you handle pandas dataframe while serializing or deserializing.
+
 ```
 pip install pyarrow==16.0.0
 ```
 
-**Step 4 : Create DAGs**
+
+## **Step 4 : Create DAGs**
 Create the pipeline dag file (Directly Acyclic Graph) and save it in the dags folder into airflow folder, you must create dags folder.
 
 Here is your dags, let's call it ``france_data_pipeline_dag_test.py`` 
@@ -263,20 +267,18 @@ load_task = PythonOperator(
 extract_task >> transform_task  >> load_task
 
 ```
-
-Set an airflow environment variable
-Important whether need a token to extract datas from a website.
+It recommended to set an airflow environment variable, important whether need a token to extract datas from a website.
 In this case hide your token in an environment variable for more security.
 
-Set it like:
+Set it like :
 
 ```
 airflow variables set env_variable_name env_variable_value
 ```
+It requires your ``env_variable_name`` started with ``AIRFLOW_VAR_`` and add its name after as ``**AIRFLOW_VAR_env_variable_name**``
 
-It requires your env_variable_name started with AIRFLOW_VAR_ and add the name after as **AIRFLOW_VAR_env_variable_name**
 
-**Step 5 : initialize db, create credentials (username email, and password), in short it is like airflow user creating.**
+## **Step 5 : Initialize db, create credentials (username email, and password), in short that is airflow user creating.**
 
 You can find this step setting into the file ``entrypoint.sh``.
 
@@ -304,20 +306,22 @@ airflow webserver --port 8080
 
 ```
 
-**Step 6 Interact with your etl code**
+
+## **Step 6 Interact with your etl code**
 Once server launched you might not use actual terminal window. You should open a new terminal and reactivate the airflow virtual environment you created.
 
 - You have to move your dag file ``france_data_pipeline_dag_test.py`` to /ariflow/dags
 
 Whether all is right you might see this page if you filter a specific dag:
 
-![dag](/Assets/dag-2024-05-08-180848.png)
+![dag](Assets/dag-2024-05-08-180848.png)
 
 You can see also the matching dag graph 
-![graph](/Assets/graph-2024-05-08-181037.png)
+![graph](Assets/graph-2024-05-08-181037.png)
 
 It is possible to interact with by for specially debug if your code is still not ok .
-![logs](/Assets/logs-2024-05-08-181145.png)
+![logs](Assets/logs-2024-05-08-181145.png)
+
 
 ## **Summary**
 I hope you enjoy reading this article about data pipeline creating with airflow.
