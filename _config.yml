@@ -3,3 +3,7 @@ logo: /Assets/Headshot.png
 description: Data science Portfolio
 show_downloads: true
 theme: jekyll-theme-minimal
+by: Donatien Konan
+tags: [Data Engineering, Apache Airflow, Data Pipeline, Python, CI/CD, Data Science]
+
+
