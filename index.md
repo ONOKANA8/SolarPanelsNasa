@@ -30,4 +30,4 @@ title: Welcome to my blog
 
 #### Extract Transform Load pipeline setting Using Airflow [Read more...](https://github.com/ONOKANA8/SolarPanelsNasa/tree/airflowetl)
 
-### [Post 1 : Weather data ETL using airflow and python scriptst](_posts/2024-05-08-Weather-data-ETL-using-airflow-and-python-scripts.md)
+### [Post 1 : Weather data ETL using airflow and python scripts](_posts/2024-05-08-Weather-data-ETL-using-airflow-and-python-scripts.md)
