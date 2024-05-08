@@ -25,7 +25,7 @@ title: Welcome to my blog
 ### **Projects**
 #### Containerization based on Docker for a machine learning binary classification application whose behavior is visualized on an interactive dashboard, [Read more...](https://github.com/ONOKANA8/DashboardFailureToPay/tree/docker-app-branch)
   
-#### Sizing Solar Panel for smart installation according consumption and monthly or periodic solar energy emitted by year, [Read more...](https://github.com/ONOKANA8/SolarPanelsNasa/tree/main) Both branches.
+#### Sizing Solar Panel for smart installation according consumption and monthly or periodic solar energy emitted by year, [Read more...](https://github.com/ONOKANA8/SolarPanelsNasa/tree/main)
 ![Solar panels installation](Assets/vecteezy_two-builders-are-installing-solar-panels_4579204-1.jpg)
 
 #### Extract Transform Load pipeline setting Using Airflow [Read more...](https://github.com/ONOKANA8/SolarPanelsNasa/tree/airflowetl)
