@@ -1,4 +1,6 @@
+# need for 
 import pandas as pd
+
 # Our etl functions will operate with this three below what I call subfunctions:
 def read_names_from_txt(filename):
     """Reads names from a text file and stores them in a list.
@@ -78,13 +80,13 @@ def extract_data():
   # load environment variable retrieve request token during that one launching
   visualcrossing_api_token = Variable.get("AIRFLOW_VAR_VISUALCROSSING_API_TOKEN")
   if not visualcrossing_api_token:
-    print("Weather API token not found. be sure define environnement variable VISUALCROSSING_API_TOKEN.")
+    print("Token d'API météo non trouvé. Assurez-vous de définir la variable d'environnement VISUALCROSSING_API_TOKEN.")
     sys.exit()
   else:
     pass
   
   # departements name processing
-  pathtofile = "/data/centre_geographique-departement_fr.txt"
+  pathtofile = "post1/centre_geographique-departement_fr.txt"
   departements = read_names_from_txt(pathtofile)
   departements = string_accent_less(departements)
   departements = get_final_cities_fr(departements)
@@ -132,8 +134,8 @@ def load_data(dataframe: pd.DataFrame):
     from datetime import datetime
     execution_date = datetime.now()
     timestamp = execution_date.strftime("%Y%m%d-%H%M%S")
-    
+
     # create an unique name with calling timestamp
     key = f"france_data_{timestamp}.csv"
-    filename = os.path.join("/data", key)
+    filename = os.path.join("airflow/post1", key)
     dataframe.to_csv(filename, index=False)
