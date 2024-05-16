@@ -120,7 +120,7 @@ Here are them:
 We store them inside a folder named data_france as well as the text file ``centre_geographique-departement_fr.txt``. This one contains name of towns of France making up the as well as possible the center of departement they belong. This approach could allow us to estimate the mean of features we could interest in from my point of view.
 Here are scripts:
 
-- france_etl_functions.py
+**france_etl_functions.py**
 
 ```
 
@@ -142,7 +142,6 @@ def read_names_from_txt(filename):
             if name:  # Ignore empty lines
                 names.append(name)
     return names
-
 
 def string_accent_less(enter):
   """
@@ -198,7 +197,6 @@ def extract_data():
   import ssl
   import os
   from airflow.models import Variable
-
 
   # load environment variable retrieve request token during that one launching
   visualcrossing_api_token = Variable.get("AIRFLOW_VAR_VISUALCROSSING_API_TOKEN")
@@ -332,7 +330,7 @@ def load_data(dataframe: pd.DataFrame):
 
 ```
 
-- france_data_pipeline_dag.py
+**france_data_pipeline_dag.py**
   
 ```
 
@@ -423,6 +421,7 @@ Activate it :
 ``source airflowenv/bin/activate``
 
 You will see:
+
 ![airflowenv](/Assets/activate-airflowenv.png)
 
 Secondly install airflow :
@@ -430,7 +429,7 @@ Secondly install airflow :
 
 # **5 Create database, airflow user and launch webserver and scheduler**
 
-Here we need to open another terminal window before launching the script below :
+Here we need to open another terminal window before launching the script below.
 
 ```
 #!/usr/bin/env bash
@@ -439,7 +438,6 @@ Here we need to open another terminal window before launching the script below :
 airflow db init
 
 # Create user
-# -u: --username; -p: --password; -r: --role; -e: --email; -f: --firstname; -l: --lastname
 airflow users create \
         -u username -p password \
         -r Admin \
