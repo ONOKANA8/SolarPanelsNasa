@@ -328,4 +328,4 @@ I hope you enjoy reading this article about data pipeline creating with airflow.
 We have learned how to set up step-by-step a airfow etl simply.
 For render available permanently you may run your etl app onto cloud like AWS with EC2 for computing and S3 for data storage. If you have any question, write to me and i will give you an answer as soon as possible. For going further, pay attention to my next article. See you soon !
 
-[Post 2 : How to deploy your airflow etl project onto cloud using AWS](_posts/2024-05-16-Deployment-Airflow-Data-Pipeline-on-Cloud-AWS.md)
+[Post 2 : How to deploy your airflow etl project onto cloud using AWS](/2024-05-16-Deployment-Airflow-Data-Pipeline-on-Cloud-AWS.md)
