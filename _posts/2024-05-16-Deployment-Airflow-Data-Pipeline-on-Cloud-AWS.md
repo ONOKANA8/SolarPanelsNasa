@@ -1,73 +1,82 @@
 # **Introduction**
 This post which a kind of rest of post 1. We show here how to render available anytime our airflow ETL dag. AWS cloud is technology used to reach our goal. Basically for this project we will use S3(Simple Storage Service), EC2 instance(Elastic Cloud Computing) and IAM(Identity and Access Management). 
 
-![image-s3-iam-ec2-airflow](Assets/infrastructures-organization.drawio.png)
+![image-s3-iam-ec2-airflow](/Assets/infrastructures-organization.drawio.png)
 
 # **1 Create cloud infrastructures : EC2 and S3**
 
 ## **Create S3 buckets**
 1 - Access to [AWS Management console](https://aws.amazon.com/console/)
+
 2 - Select S3 service at the left top of your page
+
 3 - Click on "Create Bucket" button
+
 4 - Follow settings up configurations (name of your buckets, region, security options according to your needs)
+
 I let you look at this [youtube video](https://www.youtube.com/watch?v=i4YFFWcyeFM). Perhaps it can ease your understanding.
 
 For this project, we need to create a bucket named ``bucket-airflowpipeline-solarpanel-france``.
 
 Finally we have had our bucket like this:
-![bucket page](Assets/bucket-page.png)
+![bucket page](/Assets/bucket-page.png)
 
 
 ## **Create EC2 instance**
 1 - Access to [AWS Management console](https://aws.amazon.com/console/)
+
 2 - Select EC2 service at the left top of your page
+
 3 - Pick up proper AMI (Amazon Machine Image) by beginning to launch an instance and you might fall on this page:
+Set up option you need:
+![AMI chosing page](/Assets/AMI-chosing-page.png)
 
-Set up option you need
-![AMI chosing page](Assets/AMI-chosing-page.png)
-
-4 - Create key pair and download the private key (ssh-key-ed25519.pem for example)
-![required-pair-key-and-settings.png](Assets/required-pair-key-and-settings.png)
-
+4 - Create key pair and download the private key (ssh-key-ed25519.pem for example):
+![required-pair-key-and-settings.png](/Assets/required-pair-key-and-settings.png)
 
 As for me, I have chosen Ubuntu Server 24.04 LTS and t2.micro type of instance, first of all it is free tier eligible and extras hours are less expensive than others instances types, That is cool! Isn't that?:
-![My AMI](Assets/my-ami.png)
+![My AMI](/Assets/my-ami.png)
 
 ## **Now we need to connect S3 and EC2**
 1 - Access to [AWS Management console](https://aws.amazon.com/console/)
+
 2 - Select IAM(Identy Access Management) service
+
 3 - Create IAM policy which will allow connexion to S3 bucket
+
 4 - Attach this policy to an IAM role then Join it to your EC2 instance.
 
 Here are some effortless steps:
 
-Step 1 : Fortunately some existing policies already defined to ease this steps according to your need. For instance in this project we need a full EC2 access to S3 (each other access): we can find AWS managed policies we want already defined:
-![policies-already-defined](Assets/aws-managed-policies.png)
+- Step 1 : Fortunately some existing policies already defined to ease this steps according to your need. For instance in this project we need a full EC2 access to S3 (each other access): we can find AWS managed policies we want already defined:
+![policies-already-defined](/Assets/aws-managed-policies.png)
 
 You will able to see ``AmazonEC2FullAccess`` and ``AmazonS3FullAccess`` that we will attach to a IAM role.
 
-Step 2 : Once we create our own policies or identify aws managed policies you need, we must attach them to a role. For this project we will name it ``ec2-S3-airflow-solarpanel-role``:
+- Step 2 : Once we create our own policies or identify aws managed policies you need, we must attach them to a role. For this project we will name it ``ec2-S3-airflow-solarpanel-role``:
 
 Here is the role created:
-![our-role-page](Assets/our-role-page.png)
+![our-role-page](/Assets/our-role-page.png)
 
 Then, How to create it:
 - Click on ``Create role`` which at right at the top of page.
-- Choose AWS service and select service you need, as it happens EC2.
-![create-role-page](Assets/create-role-page.png)
-- Attach permissions policies you need, as it happens ``AmazonEC2FullAccess`` and ``AmazonS3FullAccess``
-![add-permission-page](Assets/attach-permission-page.png)
+  
+- Choose AWS service and select service you need, as it happens EC2:
+![create-role-page](/Assets/create-role-page.png)
 
-- The give a meaningful name of your role to identify easily this role.
-![name-role](name-role.png) 
+- Attach permissions policies you need, as it happens ``AmazonEC2FullAccess`` and ``AmazonS3FullAccess``:
+![add-permission-page](/Assets/attach-permission-page.png)
 
-After all of that, ce can see  ``ec2-S3-airflow-solarpanel-role`` created:
+- The give a meaningful name of your role to identify easily this role:
+![name-role](/Assets/name-role.png) 
+
+After all of that, we can see  ``ec2-S3-airflow-solarpanel-role`` created:
 ![ec2-S3-airflow-solarpanel-role](/Assets/our-created-role.png)
 
-- It remains attaching it to EC2 instance like that:
+- It remains to attach it to EC2 instance like that:
  Open EC2 console, in the instance select ec2 instance created, click on ``Actions`` and pick up ``Modify IAM role`` in ``Security`` options, then select ``ec2-S3-airflow-solarpanel-role`` and click on ``Update IAM role``.
 
- ![role-attached-to-ec2](Assets/update-role.png)
+ ![role-attached-to-ec2](/Assets/update-role.png)
 
 Now, your instance has full access to your Amazon S3 buckets. Your EC2 instance will be able to interact (write, read,...)
 You will not need to create access key to connect with.
@@ -80,26 +89,27 @@ We decide to pilote operation from local machine. In this case we need to connec
 I work onto a Windows system so i see at first PuTTY as software. PuTTY is a terminal emulator for Windows allowing connection to a remote machine via SSH protocol. Personally I have encountered a issue with PuTTY on this project, finally all goes well :smile:. I needed opening several terminals, 2 to be precise, you will understand why. 
 
 Putty interface you need is like this one below:
-![putty inetrface](Assets/putty_interface.png)
+![putty inetrface](/Assets/putty_interface.png)
+
 You may enter the public ip of your EC2 instance on IP address. After that you must browse to your ssh key path:
-Go to SSH > Auth > credentials enter the path and click on Open button. 
-![putty inetrface](Assets/putty_interface.png)
+Go to ``SSH > Auth > credentials`` enter the path and click on Open button. 
+![putty inetrface](/Assets/putty_interface.png)
 
 You might invite to type username of your instance.
 If all goes well you might fall on your ec2 terminal like this :
-![ec2_terminal_interface](Assets/ec2_terminal_interface.png)
+![ec2_terminal_interface](/Assets/ec2_terminal_interface.png)
 
-From local linux Virtual Machine be sure you have OpenSSH client, if not, firstly install it :
+From local Linux Virtual Machine, be sure you have OpenSSH client, if not, firstly install it :
 
 ``sudo apt-get install openssh-client``
 
 and type : 
-``ssh -i path/to/your/ssh-key ec2username@Ip-address``
+``ssh -i path/to/your/ssh-key ec2username@Ip-address`` to connect to EC2 instance/
 
 
 # **3 Scripts**
 
-We modify Scripts defined in [Post 1](_posts/2024-05-08-Weather-data-ETL-using-airflow-and-python-scripts.md).
+We modify Scripts defined in [Post 1](/_posts/2024-05-08-Weather-data-ETL-using-airflow-and-python-scripts.md).
 Here are them:
 - dag .py : france_data_pipeline_dag.py
 - our functions defined in a module : france_etl_functions.py.
@@ -350,7 +360,7 @@ default_args = {
     'email_on_retry': False,
     'retries': 1,
     'retry_delay': timedelta(minutes=3),
-    'start_date': datetime(2024, 5, 14, 23, 0, 0),
+    'start_date': datetime(2024, 5, 16, 23, 0, 0),
 }
 
 # Create the DAG object
@@ -411,12 +421,12 @@ Activate it :
 ``source airflowenv/bin/activate``
 
 You will see:
-![airflowenv](Assets/activate-airflowenv.png)
+![airflowenv](/Assets/activate-airflowenv.png)
 
 Secondly install airflow :
 ``pip install airflow==2.9.1``
 
-# **5 Create database, airflow user and launch webserver and scheduler
+# **5 Create database, airflow user and launch webserver and scheduler**
 
 Here we need to open another terminal window before launching the script below :
 
@@ -446,7 +456,7 @@ airflow webserver --port 8080
 After that webserver will monopolize the terminal and so we will not able to use it to interact with ec2: the second opened will allow us to access ec2 instance.
 
 
-# **6 Monotoring your Airflow DAG
+# **6 Monotoring your Airflow DAG**
 
 Now it is time to move or copy your dag file in a special folder inside airflow folder: ``dags`` folder, not another name, just ``dags``. At first you have to create ``dags`` and move your dag file into.
 If all goes well you might see the webpage below after typing in a browser ``ec2-ip-address:8080``:
