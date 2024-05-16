@@ -89,14 +89,17 @@ We decide to pilote operation from local machine. In this case we need to connec
 I work onto a Windows system so i see at first PuTTY as software. PuTTY is a terminal emulator for Windows allowing connection to a remote machine via SSH protocol. Personally I have encountered a issue with PuTTY on this project, finally all goes well :smile:. I needed opening several terminals, 2 to be precise, you will understand why. 
 
 Putty interface you need is like this one below:
+
 ![putty inetrface](/Assets/putty_interface.png)
 
 You may enter the public ip of your EC2 instance on IP address. After that you must browse to your ssh key path:
 Go to ``SSH > Auth > credentials`` enter the path and click on Open button. 
+
 ![putty inetrface](/Assets/putty_interface.png)
 
 You might invite to type username of your instance.
 If all goes well you might fall on your ec2 terminal like this :
+
 ![ec2_terminal_interface](/Assets/ec2_terminal_interface.png)
 
 From local Linux Virtual Machine, be sure you have OpenSSH client, if not, firstly install it :
@@ -112,14 +115,16 @@ and type :
 We modify Scripts defined in [Post 1](/_posts/2024-05-08-Weather-data-ETL-using-airflow-and-python-scripts.md).
 Here are them:
 - dag .py : france_data_pipeline_dag.py
-- our functions defined in a module : france_etl_functions.py.
+- our functions defined in a module : france_etl_functions.py
 
-We stock them  inside a folder named data_france as well as the text file ``centre_geographique-departement_fr.txt``. This one contains name of towns of France making up the as well as possible the center of departement they belong. This approach could allow us to estimate the mean of features we could interest in from my point of view.
-
+We store them inside a folder named data_france as well as the text file ``centre_geographique-departement_fr.txt``. This one contains name of towns of France making up the as well as possible the center of departement they belong. This approach could allow us to estimate the mean of features we could interest in from my point of view.
 Here are scripts:
-- france_etl_functions.py:
+
+- france_etl_functions.py
+
 ```
-# need because of using it to define pandas dataframe arguments of some functions
+
+# because of using it to define pandas dataframe arguments of some functions
 import pandas as pd
 
 # Our etl functions will operate with this three below what I call subfunctions:
@@ -147,7 +152,6 @@ def string_accent_less(enter):
   from unidecode import unidecode # type: ignore
   y = list(map(lambda x: unidecode(x), enter))
   return y
-
 
 # function for choosing cities, centre of departments of France and for further data extraction
 def get_final_cities_fr(first_cities_extract: list):
@@ -178,9 +182,7 @@ def get_final_cities_fr(first_cities_extract: list):
             pass
     return first_cities_extract
 
-
 #### Now Our three functions ####
-
 # for extracting datas
 def extract_data():
   """
@@ -305,7 +307,6 @@ def transform_data(dataframe: pd.DataFrame):
 
     return dataframe
 
-
 # for saving data to a folder defined before
 def load_data(dataframe: pd.DataFrame):
     """
@@ -331,16 +332,15 @@ def load_data(dataframe: pd.DataFrame):
 
 ```
 
-- france_data_pipeline_dag.py :
-
+- france_data_pipeline_dag.py
+  
 ```
-# track folder data containing our useful functions
 
+# track folder data containing our useful functions
 import sys
 sys.path.append("~/solarpanel-data-extraction/data_france")
 
 # import in the dag file any librairies needed for the project
-
 import pandas as pd
 import datetime
 import urllib.request
@@ -403,10 +403,12 @@ extract_task >> transform_task  >> load_task
 ```
 
 We can see  we track our folder ``data_france`` with library ``sys`` on dag .py script:
+
 ```
 import sys
 sys.path.append("~/solarpanel-data-extraction/data_france")
 ```
+
 It is necessary to set that to be able to import functions from france_etl_functions.py inside ``data_france`` folder since with python interpreter will track it permanently.
 
 
