@@ -104,10 +104,10 @@ If all goes well you might fall on your ec2 terminal like this :
 
 From local Linux Virtual Machine, be sure you have OpenSSH client, if not, firstly install it :
 
-``sudo apt-get install openssh-client``
+```sudo apt-get install openssh-client```
 
-and type : 
-``ssh -i path/to/your/ssh-key ec2username@Ip-address`` to connect to EC2 instance/
+and type this to connect to EC2 instance: 
+```ssh -i path/to/your/ssh-key ec2username@Ip-address```
 
 
 # **3 Scripts**
@@ -414,18 +414,18 @@ It is necessary to set that to be able to import functions from france_etl_funct
 
 At first on the terminal create a virtual environment : we name it airflowenv
 
-``python3 -m venv airflowenv``
+```python3 -m venv airflowenv```
 
 Activate it :
 
-``source airflowenv/bin/activate``
+```source airflowenv/bin/activate```
 
 You will see:
 
 ![airflowenv](/images/activate-airflowenv.png)
 
 Secondly install airflow :
-``pip install airflow==2.9.1``
+```pip install airflow==2.9.1```
 
 # **5 Create database, airflow user and launch webserver and scheduler**
 
