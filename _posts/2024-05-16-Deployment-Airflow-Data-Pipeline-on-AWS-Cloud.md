@@ -1,7 +1,7 @@
 # **Introduction**
 This post which a kind of rest of post 1. We show here how to render available anytime our airflow ETL dag. AWS cloud is technology used to reach our goal. Basically for this project we will use S3(Simple Storage Service), EC2 instance(Elastic Cloud Computing) and IAM(Identity and Access Management). 
 
-![image-s3-iam-ec2-airflow](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/infrastructures-organization.drawio.jpg)
+![image-s3-iam-ec2-airflow](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/infrastructures-organization.drawio.jpg?raw=true)
 
 # **1 Create cloud infrastructures : EC2 and S3**
 
