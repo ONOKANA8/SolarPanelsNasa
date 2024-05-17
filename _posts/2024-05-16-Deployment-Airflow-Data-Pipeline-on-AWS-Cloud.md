@@ -1,7 +1,7 @@
 # **Introduction**
 This post which a kind of rest of post 1. We show here how to render available anytime our airflow ETL dag. AWS cloud is technology used to reach our goal. Basically for this project we will use S3(Simple Storage Service), EC2 instance(Elastic Cloud Computing) and IAM(Identity and Access Management). 
 
-![image-s3-iam-ec2-airflow](/Assets/infrastructures-organization.drawio.png)
+![image-s3-iam-ec2-airflow](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/Assets/infrastructures-organization.drawio.png)
 
 # **1 Create cloud infrastructures : EC2 and S3**
 
@@ -67,7 +67,7 @@ Then, How to create it:
 - Attach permissions policies you need, as it happens ``AmazonEC2FullAccess`` and ``AmazonS3FullAccess``:
 ![add-permission-page](/Assets/attach-permission-page.png)
 
-- The give a meaningful name of your role to identify easily this role:
+- Give a meaningful name of your role to identify easily this role:
 ![name-role](/Assets/name-role.png) 
 
 After all of that, we can see  ``ec2-S3-airflow-solarpanel-role`` created:
@@ -92,8 +92,8 @@ Putty interface you need is like this one below:
 
 ![putty inetrface](/Assets/putty_interface.png)
 
-You may enter the public ip of your EC2 instance on IP address. After that you must browse to your ssh key path:
-Go to ``SSH > Auth > credentials`` enter the path and click on Open button. 
+You may enter the public ip of your EC2 instance on ``IP address``. After that you must browse to your ssh key path:
+Go to ``SSH > Auth > credentials`` then enter the path and click on ``Open`` button. 
 
 ![putty inetrface](/Assets/putty_interface.png)
 
@@ -117,10 +117,10 @@ Here are them:
 - dag .py : france_data_pipeline_dag.py
 - our functions defined in a module : france_etl_functions.py
 
-We store them inside a folder named data_france as well as the text file ``centre_geographique-departement_fr.txt``. This one contains name of towns of France making up the as well as possible the center of departement they belong. This approach could allow us to estimate the mean of features we could interest in from my point of view.
+We store them inside a folder named data_france as well as the text file ``centre_geographique-departement_fr.txt``. This one contains name of towns of France making up as well as possible the center of departement they belong. This approach could allow us to estimate the mean of features we could interest in from my point of view.
 Here are scripts:
 
-**france_etl_functions.py**
+**france_etl_functions.py**:
 
 ```
 
@@ -330,7 +330,7 @@ def load_data(dataframe: pd.DataFrame):
 
 ```
 
-**france_data_pipeline_dag.py**
+**france_data_pipeline_dag.py**:
   
 ```
 
@@ -469,6 +469,6 @@ You can see your dag and monotor as you want according to issues you could encou
 # **Summary**
 
 Now you know how to deploy your airflow ETL dag on AWS Cloud with its services like EC2, S3, IAM and so make your dag available anytime you want. It is more practical not only because of availability but also the capabilities of scaling resources you use by the amounts of tasks you achieve.
-I hope you have understood everything I explain above and if you have any question, write to me and i will give you an answer as soon as possible. See you soon !
+I hope you have understood everything I explain above and if you have any question, write to me and i will give you an answer as soon as possible. 
 
-### [Post 3]()
+See you soon !
