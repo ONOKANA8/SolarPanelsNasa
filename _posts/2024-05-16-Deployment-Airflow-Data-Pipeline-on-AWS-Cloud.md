@@ -19,7 +19,7 @@ I let you look at this [youtube video](https://www.youtube.com/watch?v=i4YFFWcye
 For this project, we need to create a bucket named ``bucket-airflowpipeline-solarpanel-france``.
 
 Finally we have had our bucket like this:
-![bucket page](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/bucket-page.png?raw=true)
+![bucket page](images/Bucket-page.png)
 
 
 ## **Create EC2 instance**
@@ -29,13 +29,13 @@ Finally we have had our bucket like this:
 
 3 - Pick up proper AMI (Amazon Machine Image) by beginning to launch an instance and you might fall on this page:
 Set up option you need:
-![AMI chosing page](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/AMI-chosing-page.png?raw=true)
+![AMI chosing page](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/AMI-chosing-page.png?raw=true)
 
 4 - Create key pair and download the private key (ssh-key-ed25519.pem for example):
-![required-pair-key-and-settings.png?raw=true](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/required-pair-key-and-settings.png?raw=true)
+![required-pair-key-and-settings.png?raw=true](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/required-pair-key-and-settings.png?raw=true)
 
 As for me, I have chosen Ubuntu Server 24.04 LTS and t2.micro type of instance, first of all it is free tier eligible and extras hours are less expensive than others instances types, That is cool! Isn't that?:
-![My AMI](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/my-ami.png?raw=true)
+![My AMI](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/my-ami.png?raw=true)
 
 ## **Now we need to connect S3 and EC2**
 1 - Access to [AWS Management console](https://aws.amazon.com/console/)
@@ -49,34 +49,34 @@ As for me, I have chosen Ubuntu Server 24.04 LTS and t2.micro type of instance, 
 Here are some effortless steps:
 
 - Step 1 : Fortunately some existing policies already defined to ease this steps according to your need. For instance in this project we need a full EC2 access to S3 (each other access): we can find AWS managed policies we want already defined:
-![policies-already-defined](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/aws-managed-policies.png?raw=true)
+![policies-already-defined](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/aws-managed-policies.png?raw=true)
 
 You will able to see ``AmazonEC2FullAccess`` and ``AmazonS3FullAccess`` that we will attach to a IAM role.
 
 - Step 2 : Once we create our own policies or identify aws managed policies you need, we must attach them to a role. For this project we will name it ``ec2-S3-airflow-solarpanel-role``:
 
 Here is the role created:
-![our-role-page](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/our-role-page.png?raw=true)
+![our-role-page](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/our-role-page.png?raw=true)
 
 Then, How to create it:
 - Click on ``Create role`` which at right at the top of page.
   
 - Choose AWS service and select service you need, as it happens EC2:
-![create-role-page](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/create-role-page.png?raw=true)
+![create-role-page](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/create-role-page.png?raw=true)
 
 - Attach permissions policies you need, as it happens ``AmazonEC2FullAccess`` and ``AmazonS3FullAccess``:
-![add-permission-page](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/attach-permission-page.png?raw=true)
+![add-permission-page](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/attach-permission-page.png?raw=true)
 
 - Give a meaningful name of your role to identify easily this role:
-![name-role](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/name-role.png?raw=true) 
+![name-role](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/name-role.png?raw=true) 
 
 After all of that, we can see  ``ec2-S3-airflow-solarpanel-role`` created:
-![ec2-S3-airflow-solarpanel-role](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/our-created-role.png?raw=true)
+![ec2-S3-airflow-solarpanel-role](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/our-created-role.png?raw=true)
 
 - It remains to attach it to EC2 instance like that:
  Open EC2 console, in the instance select ec2 instance created, click on ``Actions`` and pick up ``Modify IAM role`` in ``Security`` options, then select ``ec2-S3-airflow-solarpanel-role`` and click on ``Update IAM role``.
 
- ![role-attached-to-ec2](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/update-role.png?raw=true)
+ ![role-attached-to-ec2](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/update-role.png?raw=true)
 
 Now, your instance has full access to your Amazon S3 buckets. Your EC2 instance will be able to interact (write, read,...)
 You will not need to create access key to connect with.
@@ -90,17 +90,17 @@ I work onto a Windows system so i see at first PuTTY as software. PuTTY is a ter
 
 Putty interface you need is like this one below:
 
-![putty inetrface](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/putty_interface.png?raw=true)
+![putty inetrface](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/putty_interface.png?raw=true)
 
 You may enter the public ip of your EC2 instance on ``IP address``. After that you must browse to your ssh key path:
 Go to ``SSH > Auth > credentials`` then enter the path and click on ``Open`` button. 
 
-![putty inetrface](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/putty_interface.png?raw=true)
+![putty inetrface](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/putty_interface.png?raw=true)
 
 You might invite to type username of your instance.
 If all goes well you might fall on your ec2 terminal like this :
 
-![ec2_terminal_interface](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/ec2_terminal_interface.png?raw=true)
+![ec2_terminal_interface](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/ec2_terminal_interface.png?raw=true)
 
 From local Linux Virtual Machine, be sure you have OpenSSH client, if not, firstly install it :
 
@@ -430,7 +430,7 @@ source airflowenv/bin/activate
 
 You will see:
 
-![airflowenv](/https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/activate-airflowenv.png?raw=true)
+![airflowenv](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/activate-airflowenv.png?raw=true)
 
 Secondly install airflow :
 ```
