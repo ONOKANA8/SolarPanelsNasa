@@ -19,7 +19,7 @@ I let you look at this [youtube video](https://www.youtube.com/watch?v=i4YFFWcye
 For this project, we need to create a bucket named ``bucket-airflowpipeline-solarpanel-france``.
 
 Finally we have had our bucket like this:
-![bucket page](/images/Bucket-page.png)
+![bucket page](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/Bucket-page.png?raw=true)
 
 
 ## **Create EC2 instance**
