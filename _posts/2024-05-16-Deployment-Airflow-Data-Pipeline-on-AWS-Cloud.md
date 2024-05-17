@@ -1,7 +1,7 @@
 # **Introduction**
 This post which a kind of rest of post 1. We show here how to render available anytime our airflow ETL dag. AWS cloud is technology used to reach our goal. Basically for this project we will use S3(Simple Storage Service), EC2 instance(Elastic Cloud Computing) and IAM(Identity and Access Management). 
 
-![image-s3-iam-ec2-airflow](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/Assets/infrastructures-organization.drawio.png)
+![image-s3-iam-ec2-airflow](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/infrastructures-organization.drawio.png)
 
 # **1 Create cloud infrastructures : EC2 and S3**
 
@@ -19,7 +19,7 @@ I let you look at this [youtube video](https://www.youtube.com/watch?v=i4YFFWcye
 For this project, we need to create a bucket named ``bucket-airflowpipeline-solarpanel-france``.
 
 Finally we have had our bucket like this:
-![bucket page](/Assets/bucket-page.png)
+![bucket page](/images/bucket-page.png)
 
 
 ## **Create EC2 instance**
@@ -29,13 +29,13 @@ Finally we have had our bucket like this:
 
 3 - Pick up proper AMI (Amazon Machine Image) by beginning to launch an instance and you might fall on this page:
 Set up option you need:
-![AMI chosing page](/Assets/AMI-chosing-page.png)
+![AMI chosing page](/images/AMI-chosing-page.png)
 
 4 - Create key pair and download the private key (ssh-key-ed25519.pem for example):
-![required-pair-key-and-settings.png](/Assets/required-pair-key-and-settings.png)
+![required-pair-key-and-settings.png](/images/required-pair-key-and-settings.png)
 
 As for me, I have chosen Ubuntu Server 24.04 LTS and t2.micro type of instance, first of all it is free tier eligible and extras hours are less expensive than others instances types, That is cool! Isn't that?:
-![My AMI](/Assets/my-ami.png)
+![My AMI](/images/my-ami.png)
 
 ## **Now we need to connect S3 and EC2**
 1 - Access to [AWS Management console](https://aws.amazon.com/console/)
@@ -49,34 +49,34 @@ As for me, I have chosen Ubuntu Server 24.04 LTS and t2.micro type of instance, 
 Here are some effortless steps:
 
 - Step 1 : Fortunately some existing policies already defined to ease this steps according to your need. For instance in this project we need a full EC2 access to S3 (each other access): we can find AWS managed policies we want already defined:
-![policies-already-defined](/Assets/aws-managed-policies.png)
+![policies-already-defined](/images/aws-managed-policies.png)
 
 You will able to see ``AmazonEC2FullAccess`` and ``AmazonS3FullAccess`` that we will attach to a IAM role.
 
 - Step 2 : Once we create our own policies or identify aws managed policies you need, we must attach them to a role. For this project we will name it ``ec2-S3-airflow-solarpanel-role``:
 
 Here is the role created:
-![our-role-page](/Assets/our-role-page.png)
+![our-role-page](/images/our-role-page.png)
 
 Then, How to create it:
 - Click on ``Create role`` which at right at the top of page.
   
 - Choose AWS service and select service you need, as it happens EC2:
-![create-role-page](/Assets/create-role-page.png)
+![create-role-page](/images/create-role-page.png)
 
 - Attach permissions policies you need, as it happens ``AmazonEC2FullAccess`` and ``AmazonS3FullAccess``:
-![add-permission-page](/Assets/attach-permission-page.png)
+![add-permission-page](/images/attach-permission-page.png)
 
 - Give a meaningful name of your role to identify easily this role:
-![name-role](/Assets/name-role.png) 
+![name-role](/images/name-role.png) 
 
 After all of that, we can see  ``ec2-S3-airflow-solarpanel-role`` created:
-![ec2-S3-airflow-solarpanel-role](/Assets/our-created-role.png)
+![ec2-S3-airflow-solarpanel-role](/images/our-created-role.png)
 
 - It remains to attach it to EC2 instance like that:
  Open EC2 console, in the instance select ec2 instance created, click on ``Actions`` and pick up ``Modify IAM role`` in ``Security`` options, then select ``ec2-S3-airflow-solarpanel-role`` and click on ``Update IAM role``.
 
- ![role-attached-to-ec2](/Assets/update-role.png)
+ ![role-attached-to-ec2](/images/update-role.png)
 
 Now, your instance has full access to your Amazon S3 buckets. Your EC2 instance will be able to interact (write, read,...)
 You will not need to create access key to connect with.
@@ -90,17 +90,17 @@ I work onto a Windows system so i see at first PuTTY as software. PuTTY is a ter
 
 Putty interface you need is like this one below:
 
-![putty inetrface](/Assets/putty_interface.png)
+![putty inetrface](/images/putty_interface.png)
 
 You may enter the public ip of your EC2 instance on ``IP address``. After that you must browse to your ssh key path:
 Go to ``SSH > Auth > credentials`` then enter the path and click on ``Open`` button. 
 
-![putty inetrface](/Assets/putty_interface.png)
+![putty inetrface](/images/putty_interface.png)
 
 You might invite to type username of your instance.
 If all goes well you might fall on your ec2 terminal like this :
 
-![ec2_terminal_interface](/Assets/ec2_terminal_interface.png)
+![ec2_terminal_interface](/images/ec2_terminal_interface.png)
 
 From local Linux Virtual Machine, be sure you have OpenSSH client, if not, firstly install it :
 
@@ -422,7 +422,7 @@ Activate it :
 
 You will see:
 
-![airflowenv](/Assets/activate-airflowenv.png)
+![airflowenv](/images/activate-airflowenv.png)
 
 Secondly install airflow :
 ``pip install airflow==2.9.1``
@@ -461,7 +461,7 @@ After that webserver will monopolize the terminal and so we will not able to use
 Now it is time to move or copy your dag file in a special folder inside airflow folder: ``dags`` folder, not another name, just ``dags``. At first you have to create ``dags`` and move your dag file into.
 If all goes well you might see the webpage below after typing in a browser ``ec2-ip-address:8080``:
 
-![webpage with france_dag](Assets/)
+![webpage with france_dag](images/)
 
 You can see your dag and monotor as you want according to issues you could encounter and debug in live on your terminal. As I have told in the past post, you can see on airflow website your dag code and also logs when something is wrong on your codes.  
 
