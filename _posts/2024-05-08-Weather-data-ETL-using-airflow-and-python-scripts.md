@@ -314,13 +314,13 @@ Once server launched you might not use actual terminal window. You should open a
 
 Whether all is right you might see this page if you filter a specific dag:
 
-![dag](/images/dag-2024-05-08-180848.png)
+![dag](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/dag-2024-05-08-180848.png?raw=true)
 
 You can see also the matching dag graph 
-![graph](/images/graph-2024-05-08-181037.png)
+![graph](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/graph-2024-05-08-181037.png?raw=true)
 
 It is possible to interact with for specially debug if your code is still not ok .
-![logs](/images/logs-2024-05-08-181145.png)
+![logs](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/logs-2024-05-08-181145.png?raw=true)
 
 
 ## **Summary**
@@ -328,4 +328,4 @@ I hope you enjoy reading this article about data pipeline creating with airflow.
 We have learned how to set up step-by-step a airfow etl simply.
 For render available permanently you may run your etl app onto cloud like AWS with EC2 for computing and S3 for data storage. If you have any question, write to me and i will give you an answer as soon as possible. For going further, pay attention to my next article. See you soon !
 
-[Post 2 : How to deploy your airflow etl project onto cloud using AWS](_posts/2024-05-16-Deployment-Airflow-Data-Pipeline-on-Cloud-AWS-copy.md)
+[Post 2 : How to deploy your airflow etl project onto cloud using AWS](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/_posts/2024-05-16-Deployment-Airflow-Data-Pipeline-on-AWS-Cloud.md)
