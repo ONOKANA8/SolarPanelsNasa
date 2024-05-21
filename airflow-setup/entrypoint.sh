@@ -6,11 +6,11 @@ airflow db init
 # Create user
 # -u: --username; -p: --password; -r: --role; -e: --email; -f: --firstname; -l: --lastname
 airflow users create \
-        -u admin -p admin password \
+        -u donatello -p jtm \
         -r Admin \
-        -e adminemail@mail.com \
-        -f admin  \
-        -l admin
+        -e donatien.konan.pro@gmail.com \
+        -f donatien  \
+        -l konan
 
 
 # Run the scheduler in background
