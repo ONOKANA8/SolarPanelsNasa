@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # get update and upgrade
-apt-get update && apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install python3-pip
 
 # install venv 
