@@ -2,9 +2,18 @@
 
 # get update and upgrade
 apt-get update && apt-get upgrade
-apt-get install pip
+sudo apt-get install python3-pip
+
+# install venv 
+sudo apt install python3.12-venv
+
+# create airflow environment
+python3 -m venv airflowenv
+
+# activate airflowenv
+source airflowenv/bin/activate
 
 # install airflow
 pip install -r requirements.txt
-pip install "airflow-apache[celery]"==2.9.1
+pip install "apache-airflow[celery]"==2.9.1
 
