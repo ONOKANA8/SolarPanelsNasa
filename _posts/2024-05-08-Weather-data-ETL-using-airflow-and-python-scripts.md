@@ -334,4 +334,4 @@ For render available permanently you may run your etl app onto cloud like AWS wi
 
 See you soon !
 
-[Post 2 : How to deploy your airflow etl project onto cloud using AWS](https://onokana8.github.io/SolarPanelsNasa/2024/05/08/Weather-data-ETL-using-airflow-and-python-scripts.html)
+[Post 2 : How to deploy your airflow etl project onto cloud using AWS](https://onokana8.github.io/SolarPanelsNasa/2024/05/16/Deployment-Airflow-Data-Pipeline-on-AWS-Cloud.html)
