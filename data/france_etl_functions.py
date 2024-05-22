@@ -109,19 +109,80 @@ def extract_data():
         else:
            dataframe_table.loc[len(dataframe_table)] = city_data[1]
            
-    except urllib.error.HTTPError  as e:
+    except urllib.error.HTTPError  as e:   # type: ignore
         ErrorInfo = e.read().decode() 
         print('Error code: ', e.code, ErrorInfo)
-    except  urllib.error.URLError as e:
+    except  urllib.error.URLError as e:    # type: ignore
         ErrorInfo = e.reason
         print('Error code: ', ErrorInfo)
   return dataframe_table
     
 
 # for transforming datas
-def transform_data(dataframe_table: pd.DataFrame):
-    dataframe_table = dataframe_table[["name", "solarenergy", "uvindex"]]
-    return dataframe_table
+def transform_data(dataframe: pd.DataFrame):
+
+    import pandas as pd
+    def split_name(columns):
+        split_words = columns.split(", ", 2)
+        return split_words
+    
+    split = dataframe.name.apply(split_name)
+
+    communes = []
+    regions = []
+    pays = []
+    for i in split:
+        if len(i)==3:  
+            communes.append(i[0])
+            regions.append(i[1])
+            pays.append(i[2])
+        elif len(i)==2:
+            communes.append(i[0])
+            regions.append(i[1])
+            pays.append('')
+        else:
+            pass
+    dataframe.insert(1, "communes", communes)
+    dataframe.insert(2, "regions", regions)
+    dataframe.insert(3, "pays", pays)
+
+    # replace name Saint-Martin-du-Mont because there are Saint-Martin-du-Mont(Ain) and Saint-Martin-du-Mont(Côte d'azur)
+    dataframe.iloc[0, 1] = "Saint-Martin-du-Mont(Ain)"
+    dataframe.iloc[21, 1] = "Saint-Martin-du-Mont(Cote d'Or)"
+    
+    # replace some wrong behaviors when defining regions
+    new_list = []
+    for i in list(dataframe.regions):
+        if i=="Les Avanchers-Valmorel":
+            new_list.append("Auvergne-Rhône-Alpes")
+        elif i=="Essarts en Bocage":
+            new_list.append("Pays de la Loire")
+        elif i=="La Chapelle-Anthenaise":
+            new_list.append("Pays de la Loire")
+        elif i=="Wakiso":
+            new_list.append("Occitanie")
+        elif i=="San Benedetto Po":
+            new_list.append("Île-de-France")
+        elif i=="Vorarlberg":
+            new_list.append("Grand Est")
+        elif i=="Sanilhac":
+            new_list.append("Auvergne-Rhône-Alpes")
+        elif i=="Saint Pierre and Miquelon":
+            new_list.append("Provence-Alpes-Côte d'Azur")
+        else:
+            new_list.append(i)
+    
+    dataframe.regions = new_list
+
+    # create diff_date
+    dataframe['datetime'] = pd.to_datetime(dataframe['datetime'])
+    dataframe['sunset'] = pd.to_datetime(dataframe['sunset'])
+    dataframe['sunrise'] = pd.to_datetime(dataframe['sunrise'])
+    sunset_index = list(dataframe.columns).index("sunset")
+    diff_value = (dataframe['sunset'] - dataframe['sunrise']) / pd.Timedelta(hours=1) # type: ignore
+    dataframe.insert(sunset_index+1, "timeofday", round(diff_value, 1))
+    
+    return dataframe
 
 
 # for saving data to a folder defined before
@@ -136,6 +197,13 @@ def load_data(dataframe: pd.DataFrame):
     timestamp = execution_date.strftime("%Y%m%d-%H%M%S")
 
     # create an unique name with calling timestamp
+    import boto3
+    s3 = boto3.client("s3")
+    bucket_name = "bucket-airflowpipeline-solarpanel-france"
     key = f"france_data_{timestamp}.csv"
-    filename = os.path.join("airflow/post1", key)
-    dataframe.to_csv(filename, index=False)
+    csv_data = dataframe.to_csv(index=False)
+    s3.put_object(
+                Bucket=bucket_name,
+                Key=key,
+                Body=csv_data.encode("utf-8")
+    )

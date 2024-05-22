@@ -1,7 +1,9 @@
 # **Introduction**
-This post which a kind of rest of post 1. We show here how to render available anytime our airflow ETL dag. AWS cloud is technology used to reach our goal. Basically for this project we will use S3(Simple Storage Service), EC2 instance(Elastic Cloud Computing) and IAM(Identity and Access Management). 
+This post is a kind of rest of post 1. We show here how to render available anytime our airflow ETL dag. AWS cloud is technology used to reach our goal. Basically for this project we will use S3(Simple Storage Service), EC2 instance(Elastic Cloud Computing) and IAM(Identity and Access Management). 
 
 ![image-s3-iam-ec2-airflow](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/infrastructures-organization.drawio.jpg?raw=true)
+
+Here is how this infrastructure has been set up: 
 
 # **1 Create cloud infrastructures : EC2 and S3**
 
@@ -78,7 +80,7 @@ After all of that, we can see  ``ec2-S3-airflow-solarpanel-role`` created:
 
  ![role-attached-to-ec2](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/update-role.png?raw=true)
 
-Now, your instance has full access to your Amazon S3 buckets. Your EC2 instance will be able to interact (write, read,...)
+Now, your instance has full access to your Amazon S3 buckets. Your EC2 instance will be able to interact (write, read,...).
 You will not need to create access key to connect with.
 
 So far so good!
@@ -97,7 +99,7 @@ Go to ``SSH > Auth > credentials`` then enter the path and click on ``Open`` but
 
 ![putty inetrface](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/putty_interface.png?raw=true)
 
-You might invite to type username of your instance.
+You might be invited to type username of your instance.
 If all goes well you might fall on your ec2 terminal like this :
 
 ![ec2_terminal_interface](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/ec2_terminal_interface.png?raw=true)
@@ -108,7 +110,7 @@ From local Linux Virtual Machine, be sure you have OpenSSH client, if not, first
 sudo apt-get install openssh-client
 ```
 
-and type this to connect to EC2 instance: 
+and type this to connect to EC2 instance:
 ```
 ssh -i path/to/your/ssh-key ec2username@Ip-address
 ```
@@ -121,7 +123,7 @@ Here are them:
 - dag .py : france_data_pipeline_dag.py
 - our functions defined in a module : france_etl_functions.py
 
-We store them inside a folder named data_france as well as the text file ``centre_geographique-departement_fr.txt``. This one contains name of towns of France making up as well as possible the center of departement they belong. This approach could allow us to estimate the mean of features we could interest in from my point of view.
+We store them inside a folder named data_france as well as the text file ``centre_geographique-departement_fr.txt``. This one contains name of towns of France making up as well as possible the center of departement they belong. This approach could allow us to estimate the average of features we could interest in from my point of view.
 Here are scripts:
 
 **france_etl_functions.py**:
@@ -404,7 +406,7 @@ extract_task >> transform_task  >> load_task
 
 ```
 
-We can see  we track our folder ``data_france`` with library ``sys`` on dag .py script:
+We can see we track our folder ``data_france`` with library ``sys`` on dag .py script:
 
 ```
 import sys
@@ -469,11 +471,16 @@ After that webserver will monopolize the terminal and so we will not able to use
 # **6 Monotoring your Airflow DAG**
 
 Now it is time to move or copy your dag file in a special folder inside airflow folder: ``dags`` folder, not another name, just ``dags``. At first you have to create ``dags`` and move your dag file into.
-If all goes well you might see the webpage below after typing in a browser ``ec2-ip-address:8080``:
+If all goes well you might see the webpage below after typing in a browser ``ec2-ip-address:8080``: 
 
-![webpage with france_dag](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/)
+![webpage with france_dag](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/displaying-of-your-dag.png?raw=true).
 
-You can see your dag and monotor as you want according to issues you could encounter and debug in live on your terminal. As I have told in the past post, you can see on airflow website your dag code and also logs when something is wrong on your codes.  
+Wait! a another stuff is required: you have to set the ``secure group rules`` with a protocol which listen the port 8080. Pay well attention to the inbound and outbound rules you define, it is very crucial for the traffic allowance!  
+
+Now you can see your dag and monotor as you want according to issues you could encounter and debug in real time on your terminal. As I have told in the past post, you can see on airflow website your dag code and also logs when something is wrong on your codes.  
+
+Here is the csv file we intended to load. We can see it in the bucket ``bucket-airflowpipeline-solarpanel-france`` on AWS S3, we will have time to analyze datas it contains and create insights with:
+![first csv file intended ](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/filesstoreins3.png?raw=true).
 
 
 # **Summary**

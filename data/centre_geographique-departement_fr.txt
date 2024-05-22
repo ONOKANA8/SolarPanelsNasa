@@ -1,4 +1,4 @@
-Saint-Martin-du-Mont
+Saint-Martin-du-Mont(Ain)
 Clacy-et-Thierret
 Treban
 Digne-les-Bains
@@ -19,7 +19,7 @@ Osmoy
 Corrèze
 Santa-Maria-Siché
 Lano
-Saint-Martin-du-Mont
+Saint-Martin-du-Mont(Cote)
 Plaine-Haute
 Ahun
 Notre-Dame-de-Sanilhac
@@ -49,7 +49,7 @@ Granges-sur-Lot
 Mende
 Mûrs-Erigné
 Camprond
-Saint-Pierre
+Saint-Pierre(provence)
 Chamarandes-Choignes
 La Chapelle-Anthenaise
 Malleloy
@@ -66,7 +66,7 @@ Gurs
 Gerde
 Finestret
 Schnersheim
-Feldkirch
+Feldkirch(haut-Rhin)
 Châtillon
 Montigny-lès-Vesoul
 Collonge-en-Charollais
