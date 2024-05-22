@@ -480,7 +480,7 @@ Wait! a another stuff is required: you have to set the ``secure group rules`` wi
 Now you can see your dag and monotor as you want according to issues you could encounter and debug in real time on your terminal. As I have told in the past post, you can see on airflow website your dag code and also logs when something is wrong on your codes.  
 
 Here is the csv file we intended to load. We can see it in the bucket ``bucket-airflowpipeline-solarpanel-france`` on AWS S3, we will have time to analyze datas it contains and create insights with:
-![first csv file intended ](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/filesstoreins3.png?raw=true).
+![first csv file intended](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/filesstoreins3.png?raw=true).
 
 
 # **Summary**
@@ -489,3 +489,6 @@ Now you know how to deploy your airflow ETL dag on AWS Cloud with its services l
 I hope you have understood everything I explain above and if you have any question, write to me and i will give you an answer as soon as possible. 
 
 See you soon !
+
+
+[Post 3 : Analyzing Datas extracted handling with Power BI(Writing ongoing)]()

@@ -1,11 +1,12 @@
 ## **Introduction**
 It is so common to build etl script to make easy data pipeline for many goals in data science.
-In this article, we interest in weather feature data on a website via its API. Along this article
-We explain how to build efficiently an Extract, Transform, and Load pipeline and make yours easier with scheduling.
+Along this article, we interest in weather feature data on a website via its API and we explain how to build efficiently an Extract, Transform, and Load pipeline with ``AIRFLOW`` and make yours easier with scheduling.
 You need to know python programmation language, basic knowlegdes could be sufficient. So obviously you have to install Python 3.6 or later.
 
-Are you ready ? Let’s get started !
+![airflowdocker](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/airflowdocker.gif?raw=true)
+
 We can understand airflow etl from installation to launching in 6 steps.
+Are you ready ? Let’s get started !
 
 ## **Step 1 : Create working virtual environment**
 For this kind of project, it’s strongly recommand to create a virtual development environment to isolate your differents project dependencies needed and why not allow you reproduce easily that one for later whenever you want.
@@ -21,9 +22,9 @@ You might see a created new folder called airflowenv
 
 Generally it is easy to install airflow on Linux.
 
-With my experience I have always encountered some error while installation so i recommand you installation on Linux. You don’t have Linux ? You can create an Linux image with Docker and Launch a container. Don’t worry it's easy to learn [Docker](https://depot.dev/blog/docker-build-image) using. 
+With my experience I have always encountered some errors during installation so i recommand you setting up on Linux. You don’t have Linux ? You can create an Linux image with Docker and Launch a container. Don’t worry it's easy to learn [Docker](https://depot.dev/blog/docker-build-image) using and after come back to my file `` Dockerfile ``, you will pretty understand its structure and help you to create yours later and easier.
 
--	Activate the environment For Unix-based systems
+-	Now activate the environment for Unix-based systems
 ```
 source airflowenv/bin/acitvate
 ```
@@ -40,7 +41,7 @@ Look ! We will extract, transform and load so we must create mainly three functi
 - **transform_data** : transformations depend on the goal you want to reach with data extracted. So here to be simply we will eventually keep only 3 features among all extracted for instance.
 - **load_data** : save data to a specific folder.
 
-You can write your own etl functions like this on contained in ``etl_functions.py`` module:
+You can write your own etl functions like this on contained in ``france_etl_functions.py`` module:
 
 ```
 # Need for defining alias pd used by some functions describing entries type allowed
@@ -213,7 +214,7 @@ import urllib.request
 import unidecode
 from unidecode import unidecode
 from datetime import datetime, timedelta
-from etl_functions import *
+from france_etl_functions import *
 
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -307,25 +308,30 @@ airflow webserver --port 8080
 ```
 
 
-## **Step 6 Interact with your etl code**
+## **Step 6 : Interact with your etl code**
 Once server launched you might not use actual terminal window. You should open a new terminal and reactivate the airflow virtual environment you created.
 
-- You have to move your dag file ``france_data_pipeline_dag_test.py`` to /ariflow/dags
+- You have to move your dag file `` france_data_pipeline_dag_test.py `` to /ariflow/dags
 
 Whether all is right you might see this page if you filter a specific dag:
 
 ![dag](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/dag-2024-05-08-180848.png?raw=true)
 
-You can see also the matching dag graph 
+You can see also the matching dag graph:
+
 ![graph](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/graph-2024-05-08-181037.png?raw=true)
 
-It is possible to interact with for specially debug if your code is still not ok .
+It is possible to interact with for specially debug if your code is still not ok:
+
 ![logs](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/logs-2024-05-08-181145.png?raw=true)
 
+Congratulations! That's done.
 
 ## **Summary**
-I hope you enjoy reading this article about data pipeline creating with airflow.
+I hope you enjoy reading this article about data pipeline created with airflow.
 We have learned how to set up step-by-step a airfow etl simply.
-For render available permanently you may run your etl app onto cloud like AWS with EC2 for computing and S3 for data storage. If you have any question, write to me and i will give you an answer as soon as possible. For going further, pay attention to my next article. See you soon !
+For render available permanently you may run your etl app onto cloud like AWS with EC2 for computing and S3 for data storage. If you have any question, write to me and I will give you an answer as soon as possible. For going further, pay attention to my next article.
 
-[Post 2 : How to deploy your airflow etl project onto cloud using AWS](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/_posts/2024-05-16-Deployment-Airflow-Data-Pipeline-on-AWS-Cloud.md)
+See you soon !
+
+[Post 2 : How to deploy your airflow etl project onto cloud using AWS](https://onokana8.github.io/SolarPanelsNasa/2024/05/08/Weather-data-ETL-using-airflow-and-python-scripts.html)
