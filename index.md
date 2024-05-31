@@ -32,3 +32,4 @@ title: Welcome to my blog
 
 ### [Post 1 : Weather data ETL using airflow and python scripts](_posts/2024-05-08-Weather-data-ETL-using-airflow-and-python-scripts.md)
 ### [Post 2 : Deployment Airflow Data Pipeline on AWS Cloud](_posts/2024-05-16-Deployment-Airflow-Data-Pipeline-on-AWS-Cloud.md)
+### [Post 3 : Analyzing Datas Extracted with Power BI and Python](_posts/2024-05-30-Analyzing-Datas-extracted-handling-with-Power-BI-and-Python.md)
