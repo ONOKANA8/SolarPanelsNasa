@@ -30,7 +30,7 @@ The Data Modeling step is meant to facilitate analysis in terms of processing sp
 
 ![charts](https://github.com/ONOKANA8/SolarPanelsNasa/blob/analysis/assets/chart_types.png?raw=true)
 
-With all this, we have finally obtained this dashboard using Power BI shown above:
+With all this, we have finally obtained this dashboard using Power BI shown as below:
 
 ![weather dashboard](https://github.com/ONOKANA8/SolarPanelsNasa/blob/analysis/assets/solar-project-dashboard.png?raw=true)
 
@@ -79,8 +79,8 @@ Below is the choropleth map of the regions:
 
 ![regions choropleth](https://github.com/ONOKANA8/SolarPanelsNasa/blob/analysis/assets/regions_choropleth.png?raw=true)
 
-You can visualize the entire regions choropleth map [here](https://github.com/ONOKANA8/SolarPanelsNasa/blob/analysis/assets/ensoleillement-regions.html). 
-You can also find choropleth map of departments [there](https://github.com/ONOKANA8/SolarPanelsNasa/blob/analysis/assets/ensoleillement-departments.html).
+You can visualize the entire regions choropleth map [here](https://onokana8.github.io/SolarPanelsNasa/images/ensoleillement-regions.html). 
+You can also find choropleth map of departments [there](https://github.com/ONOKANA8/SolarPanelsNasa/blob/analysis/images/ensoleillement-departments.html).
 
 Note:
 
