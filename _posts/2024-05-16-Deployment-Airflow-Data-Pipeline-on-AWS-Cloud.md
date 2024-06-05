@@ -5,9 +5,10 @@ This post is a kind of rest of post 1. We show here how to render available anyt
 
 Here is how this infrastructure has been set up: 
 
-# **1 Create cloud infrastructures : EC2 and S3**
+# **1. Create cloud infrastructures : EC2 and S3**
 
-## **Create S3 buckets**
+## **1.1 Create S3 buckets**
+
 1 - Access to [AWS Management console](https://aws.amazon.com/console/)
 
 2 - Select S3 service at the left top of your page
@@ -24,7 +25,7 @@ Finally we have had our bucket like this:
 ![bucket page](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/Bucket-page.png?raw=true)
 
 
-## **Create EC2 instance**
+## **1.2 Create EC2 instance**
 1 - Access to [AWS Management console](https://aws.amazon.com/console/)
 
 2 - Select EC2 service at the left top of your page
@@ -39,7 +40,7 @@ Set up option you need:
 As for me, I have chosen Ubuntu Server 24.04 LTS and t2.micro type of instance, first of all it is free tier eligible and extras hours are less expensive than others instances types, That is cool! Isn't that?:
 ![My AMI](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/my-ami.png?raw=true)
 
-## **Now we need to connect S3 and EC2**
+## **1.3 Now we need to connect S3 and EC2**
 1 - Access to [AWS Management console](https://aws.amazon.com/console/)
 
 2 - Select IAM(Identy Access Management) service
@@ -50,12 +51,12 @@ As for me, I have chosen Ubuntu Server 24.04 LTS and t2.micro type of instance, 
 
 Here are some effortless steps:
 
-- Step 1 : Fortunately some existing policies already defined to ease this steps according to your need. For instance in this project we need a full EC2 access to S3 (each other access): we can find AWS managed policies we want already defined:
+**- Step 1** : Fortunately some existing policies already defined to ease this steps according to your need. For instance in this project we need a full EC2 access to S3 (each other access): we can find AWS managed policies we want already defined:
 ![policies-already-defined](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/aws-managed-policies.png?raw=true)
 
 You will able to see ``AmazonEC2FullAccess`` and ``AmazonS3FullAccess`` that we will attach to a IAM role.
 
-- Step 2 : Once we create our own policies or identify aws managed policies you need, we must attach them to a role. For this project we will name it ``ec2-S3-airflow-solarpanel-role``:
+**- Step 2** : Once we create our own policies or identify aws managed policies you need, we must attach them to a role. For this project we will name it ``ec2-S3-airflow-solarpanel-role``:
 
 Here is the role created:
 ![our-role-page](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/our-role-page.png?raw=true)
@@ -85,7 +86,7 @@ You will not need to create access key to connect with.
 
 So far so good!
 
-# **2 How to connect to EC2 instance** 
+# **2. How to connect to EC2 instance** 
 
 We decide to pilote operation from local machine. In this case we need to connect our machine (client) with remote instance EC2. Do you Remind We created SSH(Secure SHell) during cloud computing setting up? Well we need it to create this connexion.
 I work onto a Windows system so i see at first PuTTY as software. PuTTY is a terminal emulator for Windows allowing connection to a remote machine via SSH protocol. Personally I have encountered a issue with PuTTY on this project, finally all goes well :smile:. I needed opening several terminals, 2 to be precise, you will understand why. 
@@ -116,7 +117,7 @@ ssh -i path/to/your/ssh-key ec2username@Ip-address
 ```
 
 
-# **3 Scripts**
+# **3. Scripts**
 
 We modify Scripts defined in [Post 1](https://github.com/ONOKANA8/SolarPanelsNasa/edit/airflowetl/_posts/2024-05-08-Weather-data-ETL-using-airflow-and-python-scripts.md?raw=true).
 Here are them:
@@ -416,7 +417,7 @@ sys.path.append("~/solarpanel-data-extraction/data_france")
 It is necessary to set that to be able to import functions from france_etl_functions.py inside ``data_france`` folder so that Python interpreter will track it permanently.
 
 
-# **4 Airflow setting up**
+# **4. Airflow setting up**
 
 At first on the terminal create a virtual environment : we name it airflowenv
 
@@ -439,7 +440,7 @@ Secondly install airflow :
 pip install airflow==2.9.1
 ```
 
-# **5 Create database, airflow user and launch webserver and scheduler**
+# **5. Create database, airflow user and launch webserver and scheduler**
 
 Here we need to open another terminal window before launching the script below.
 
@@ -468,7 +469,7 @@ airflow webserver --port 8080
 After that webserver will monopolize the terminal and so we will not able to use it to interact with ec2: the second opened will allow us to access ec2 instance.
 
 
-# **6 Monotoring your Airflow DAG**
+# **6. Monotoring your Airflow DAG**
 
 Now it is time to move or copy your dag file in a special folder inside airflow folder: ``dags`` folder, not another name, just ``dags``. At first you have to create ``dags`` and move your dag file into.
 If all goes well you might see the webpage below after typing in a browser ``ec2-ip-address:8080``: 
