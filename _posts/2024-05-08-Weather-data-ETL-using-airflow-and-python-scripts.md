@@ -1,4 +1,4 @@
-## **Introduction**
+# **Introduction**
 It is so common to build etl script to make easy data pipeline for many goals in data science.
 Along this article, we interest in weather feature data on a website via its API and we explain how to build efficiently an Extract, Transform, and Load pipeline with ``AIRFLOW`` and make yours easier with scheduling.
 You need to know python programmation language, basic knowlegdes could be sufficient. So obviously you have to install Python 3.6 or later.
@@ -8,7 +8,7 @@ You need to know python programmation language, basic knowlegdes could be suffic
 We can understand airflow etl from installation to launching in 6 steps.
 Are you ready ? Let’s get started !
 
-## **Step 1 : Create working virtual environment**
+# **Step 1 : Create working virtual environment**
 For this kind of project, it’s strongly recommand to create a virtual development environment to isolate your differents project dependencies needed and why not allow you reproduce easily that one for later whenever you want.
 Let’s call this airflowenv, open your terminal and paste this one below :
 
@@ -18,7 +18,7 @@ python -m venv airflowenv
 
 You might see a created new folder called airflowenv
 
-## **Step 2 : Activate the virtual environment and Install airflow**
+# **Step 2 : Activate the virtual environment and Install airflow**
 
 Generally it is easy to install airflow on Linux.
 
@@ -35,7 +35,7 @@ pip install apache-airflow
 ```
 
 
-## **Step 3 : Create your python scripts**
+# **Step 3 : Create your python scripts**
 Look ! We will extract, transform and load so we must create mainly three functions:
 - **extract_data** : extract data from weather API website by requesting.
 - **transform_data** : transformations depend on the goal you want to reach with data extracted. So here to be simply we will eventually keep only 3 features among all extracted for instance.
@@ -195,7 +195,7 @@ pip install pyarrow==16.0.0
 ```
 
 
-## **Step 4 : Create DAGs**
+# **Step 4 : Create DAGs**
 Create the pipeline dag file (Directly Acyclic Graph) and save it in the dags folder into airflow folder, you must create dags folder.
 
 Here is your dags, let's call it ``france_data_pipeline_dag_test.py`` 
@@ -279,7 +279,7 @@ airflow variables set env_variable_name env_variable_value
 It requires your ``env_variable_name`` started with ``AIRFLOW_VAR_`` and add its name after as ``**AIRFLOW_VAR_env_variable_name**``
 
 
-## **Step 5 : Initialize db, create credentials (username email, and password), in short that is airflow user creating.**
+# **Step 5 : Initialize db, create credentials (username email, and password), in short that is airflow user creating.**
 
 You can find this step setting into the file ``entrypoint.sh``.
 
@@ -308,7 +308,7 @@ airflow webserver --port 8080
 ```
 
 
-## **Step 6 : Interact with your etl code**
+# **Step 6 : Interact with your etl code**
 Once server launched you might not use actual terminal window. You should open a new terminal and reactivate the airflow virtual environment you created.
 
 - You have to move your dag file `` france_data_pipeline_dag_test.py `` to /ariflow/dags
@@ -327,7 +327,7 @@ It is possible to interact with for specially debug if your code is still not ok
 
 Congratulations! That's done.
 
-## **Summary**
+# **Summary**
 I hope you enjoy reading this article about data pipeline created with airflow.
 We have learned how to set up step-by-step a airfow etl simply.
 For render available permanently you may run your etl app onto cloud like AWS with EC2 for computing and S3 for data storage. If you have any question, write to me and I will give you an answer as soon as possible. For going further, pay attention to my next article.
