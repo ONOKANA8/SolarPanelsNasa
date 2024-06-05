@@ -80,7 +80,7 @@ Below is the choropleth map of the regions:
 ![regions choropleth](https://github.com/ONOKANA8/SolarPanelsNasa/blob/analysis/assets/regions_choropleth.png?raw=true)
 
 You can visualize the entire regions choropleth map [here](https://onokana8.github.io/SolarPanelsNasa/images/ensoleillement-regions.html). 
-You can also find choropleth map of departments [there](https://github.com/ONOKANA8/SolarPanelsNasa/blob/analysis/images/ensoleillement-departments.html).
+You can also find choropleth map of departments [there](https://github.com/ONOKANA8/SolarPanelsNasa/blob/analysis/images/ensoleillement-departements.html).
 
 Note:
 
