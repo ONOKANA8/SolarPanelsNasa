@@ -1,11 +1,11 @@
 # **Introduction**
 
-This post highlights the weather data retrieved in the previous post. We will seek to understand this data in order to extract information by creating insights. This involves essentially descriptive analysis of our data. To achieve this, we will work with data processing and visualization tools such as Power Query, PowerBI, and Python.
+This post highlights the weather data retrieved in the previous post. We will seek to understand this data in order to extract informations by creating insights. This involves essentially descriptive analysis of our data. To achieve this, we will work with data processing and visualization tools such as Power Query, PowerBI, and Python.
 
 ![Powerbi and Python](https://github.com/ONOKANA8/SolarPanelsNasa/blob/analysis/assets/python_powerbi-chart.jpg?raw=true)
 
 
-# **1/ Data Processing (to data_mart) with Power Query**
+# **1. Data Processing (to data_mart) with Power Query**
 
 After extracting the data, it's clear that we want to analyze it. This involves weather data such as temperature, solar power, associated light energy, daylight duration, and many other important pieces of information. Our study here will focus on the energy data because, in my opinion, it is the primary and most important factor that gives us the light energy received by solar panels.
 
