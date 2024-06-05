@@ -469,7 +469,7 @@ airflow webserver --port 8080
 After that webserver will monopolize the terminal and so we will not able to use it to interact with ec2: the second opened will allow us to access ec2 instance.
 
 
-# **6. Monotoring your Airflow DAG**
+# **6. Monotoring of your Airflow DAG**
 
 Now it is time to move or copy your dag file in a special folder inside airflow folder: ``dags`` folder, not another name, just ``dags``. At first you have to create ``dags`` and move your dag file into.
 If all goes well you might see the webpage below after typing in a browser ``ec2-ip-address:8080``: 
