@@ -28,7 +28,9 @@ title: Welcome to my blog
 #### - Sizing Solar Panel for smart installation according consumption and monthly or periodic solar energy emitted by year, [Read more...](https://github.com/ONOKANA8/SolarPanelsNasa/tree/main)
 ![Solar panels installation](Assets/vecteezy_two-builders-are-installing-solar-panels_4579204-1.jpg)
 
-#### - Extract Transform Load pipeline setting Using Airflow [Read more...](https://github.com/ONOKANA8/SolarPanelsNasa/tree/airflowetl)
+#### - Extract Transform Load Pipeline setting Using Airflow [Read more...](https://github.com/ONOKANA8/SolarPanelsNasa/tree/airflowetl)
+
+#### - Analyzing Datas Extracted using Power BI and Python [Read more...](https://github.com/ONOKANA8/SolarPanelsNasa/tree/analysis)
 
 ### [Post 1 : Weather data ETL using airflow and python scripts](_posts/2024-05-08-Weather-data-ETL-using-airflow-and-python-scripts.md)
 ### [Post 2 : Deployment Airflow Data Pipeline on AWS Cloud](_posts/2024-05-16-Deployment-Airflow-Data-Pipeline-on-AWS-Cloud.md)
