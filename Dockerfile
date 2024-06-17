@@ -35,7 +35,6 @@ RUN apt-get update -yqq && \
     locales \
     && apt-get clean
 
-
 # copy requirements file
 COPY ./requirements.txt requirements.txt
 RUN pip install --upgrade pip && \

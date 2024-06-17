@@ -6,7 +6,7 @@ airflow db init
 # Create user
 # -u: --username; -p: --password; -r: --role; -e: --email; -f: --firstname; -l: --lastname
 airflow users create \
-        -u donatello -p jtm \
+        -u xxxxxxxx -p xxxxxx \
         -r Admin \
         -e donatien.konan.pro@gmail.com \
         -f donatien  \
