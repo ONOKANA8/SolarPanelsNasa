@@ -189,7 +189,7 @@ def get_final_cities_fr(first_cities_extract: list):
     return first_cities_extract
 
 #### Now Our three functions ####
-# for extracting datas
+# for extracting data
 def extract_data():
   """
     Extraction de données climatique via le site de visualcrossing
@@ -246,7 +246,7 @@ def extract_data():
         print('Error code: ', ErrorInfo)
   return dataframe_table
 
-# for transforming datas
+# for transforming data
 def transform_data(dataframe: pd.DataFrame):
     """
     args: france dataframe
@@ -480,7 +480,7 @@ Wait! a another stuff is required: you have to set the ``secure group rules`` wi
 
 Now you can see your dag and monotor as you want according to issues you could encounter and debug in real time on your terminal. As I have told in the past post, you can see on airflow website your dag code and also logs when something is wrong on your codes.  
 
-Here is the csv file we intended to load. We can see it in the bucket ``bucket-airflowpipeline-solarpanel-france`` on AWS S3, we will have time to analyze datas it contains and create insights with:
+Here is the csv file we intended to load. We can see it in the bucket ``bucket-airflowpipeline-solarpanel-france`` on AWS S3, we will have time to analyze data it contains and create insights with:
 ![first csv file intended](https://github.com/ONOKANA8/SolarPanelsNasa/blob/airflowetl/images/filesstoreins3.png?raw=true).
 
 
@@ -492,4 +492,4 @@ I hope you have understood everything I explain above and if you have any questi
 See you soon !
 
 
-[Post 3 : Analyzing Datas extracted handling with Power BI(Writing ongoing)]()
+[Post 3 : Analyzing Extracted Data handling with Power BI](https://onokana8.github.io/SolarPanelsNasa/2024/05/30/Analyzing-extracted-Data-handling-with-Power-BI-and-Python.html)
