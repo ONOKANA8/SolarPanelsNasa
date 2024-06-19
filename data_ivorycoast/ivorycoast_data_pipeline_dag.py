@@ -1,7 +1,7 @@
 # track folder data containing our useful functions
 
 import sys
-sys.path.append("home/ubuntu/SolarPanelsNasa/data_ivorycoast")
+sys.path.append("/home/ubuntu/SolarPanelsNasa/data_ivorycoast")
 
 # import in the dag file any librairies needed for the project
 
