@@ -79,7 +79,7 @@ def extract_data():
     pass
   
   # departements name processing
-  pathtofile = "data_ivorycoast/departement_ci.txt"
+  pathtofile = "departement_ci.txt"
   departements = read_names_from_txt(pathtofile)
   departements = string_accent_less(departements)
   departements = get_unique_elements(departements)
