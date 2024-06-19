@@ -86,7 +86,7 @@ def extract_data():
     pass
   
   # departements name processing
-  pathtofile = "home/ubuntu/SolarPanelsNasa/data_france/centre_geographique-departement_fr.txt"
+  pathtofile = "/home/ubuntu/SolarPanelsNasa/data_france/centre_geographique-departement_fr.txt"
   departements = read_names_from_txt(pathtofile)
   departements = string_accent_less(departements)
   departements = get_final_cities_fr(departements)
