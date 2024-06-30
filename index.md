@@ -34,4 +34,4 @@ title: Welcome to my blog
 
 ### [Post 1 : Weather data ETL using airflow and python scripts](_posts/2024-05-08-Weather-data-ETL-using-airflow-and-python-scripts.md)
 ### [Post 2 : Deployment Airflow Data Pipeline on AWS Cloud](_posts/2024-05-16-Deployment-Airflow-Data-Pipeline-on-AWS-Cloud.md)
-### [Post 3 : Analyzing Extracted Data handling with Power BI](https://onokana8.github.io/SolarPanelsNasa/2024/05/30/Analyzing-extracted-Data-handling-with-Power-BI-and-Python.html)
+### [Post 3 : Analyzing Extracted Data handling with Power BI](_posts/2024-05-30-Analyzing-extracted-Data-handling-with-Power-BI-and-Python.md)
