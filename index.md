@@ -20,7 +20,7 @@ title: Welcome to my blog
 **High School Physics Teacher @ Versailles Academy (_January 2018 - August 2021_)**
 
 **R&D Battery and Supercapacitor Engineer @ PCM2E (_April 2017 - July 2017_)** 
-- Development and Caracterization of supercapacitor electrode materials
+- Development and Characterization of supercapacitor electrode materials
 
 ### **Projects**
 #### - Containerization based on Docker for a machine learning binary classification application whose behavior is visualized on an interactive dashboard, [Read more...](https://github.com/ONOKANA8/DashboardFailureToPay/tree/docker-app-branch)
