@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+ #!/usr/bin/env bash
 
 # Initiliase the metastore
 airflow db init
@@ -6,16 +6,16 @@ airflow db init
 # Create user
 # -u: --username; -p: --password; -r: --role; -e: --email; -f: --firstname; -l: --lastname
 airflow users create \
-        -u xxxxxxxx -p xxxxxx \
+        -u xxxx -p xxxx \
         -r Admin \
         -e donatien.konan.pro@gmail.com \
         -f donatien  \
         -l konan
 
 
-# Run the scheduler in background
-airflow scheduler &> /dev/null &
+# Run the scheduler in the background
+nohup airflow scheduler &> /dev/null &
 
-# Run the web server in foreground (for docker logs)
-airflow webserver --port 8080 
+# Run the web server in the background
+nohup airflow webserver --port 8080 &
 

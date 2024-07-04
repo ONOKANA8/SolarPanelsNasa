@@ -1,7 +1,7 @@
 # track folder data containing our useful functions
 
 import sys
-sys.path.append("home/ubuntu/SolarPanelsNasa/data_ivorycoast")
+sys.path.append("/home/ubuntu/SolarPanelsNasa/data_ivorycoast")
 
 # import in the dag file any librairies needed for the project
 
@@ -24,7 +24,7 @@ default_args = {
     'email_on_retry': False,
     'retries': 1,
     'retry_delay': timedelta(minutes=3),
-    'start_date': datetime(2024, 5, 21, 16, 0, 0),
+    'start_date': datetime(2024, 6, 19, 13, 50, 0),
 }
 
 # Create the DAG object

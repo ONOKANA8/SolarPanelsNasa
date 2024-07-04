@@ -28,6 +28,6 @@ locales \
 && apt-get clean
 
 # install airflow and requirements
-pip3 install -r requirements.txt
+pip3 install -r ./requirements.txt
 pip3 install "apache-airflow[celery]"==2.9.1
 
